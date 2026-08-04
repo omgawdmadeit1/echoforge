@@ -7,9 +7,29 @@ The living memory layer of the world.
 
 ## Live
 
-- **Public demo:** https://omgawdmadeit1.github.io/echoforge/
+- **Canonical:** https://echoforge.lvlltd.com
+- **Fallback demo:** https://omgawdmadeit1.github.io/echoforge/
 - **Source:** https://github.com/omgawdmadeit1/echoforge
 - **Release:** https://github.com/omgawdmadeit1/echoforge/releases/tag/v1.0.0
+
+### Custom domain (Cloudflare DNS)
+
+GitHub Pages is configured for `echoforge.lvlltd.com` (same pattern as `forge.lvlltd.com`).
+
+DNS record on zone `lvlltd.com` (Cloudflare — **DNS only / grey cloud** so GitHub can issue SSL):
+
+| Type | Name | Target | Proxy |
+|------|------|--------|-------|
+| CNAME | `echoforge` | `omgawdmadeit1.github.io` | DNS only |
+
+Operator Zone API (if `OPS_SECRET` is set):
+
+```bash
+curl -sS -X POST -H "Authorization: Bearer $OPS_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"action":"upsert_cname","name":"echoforge","content":"omgawdmadeit1.github.io","proxied":false}' \
+  "https://lvlltd.com/api/zone"
+```
 
 ## What this is
 
