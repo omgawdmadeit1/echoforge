@@ -5,6 +5,12 @@ The living memory layer of the world.
 **Tagline:** Leave an echo. Discover the world’s living memory.  
 **Secondary:** Stories, secrets, and the numbers that prove them — tied to the places that matter.
 
+## Live
+
+- **Public demo:** https://omgawdmadeit1.github.io/echoforge/
+- **Source:** https://github.com/omgawdmadeit1/echoforge
+- **Release:** https://github.com/omgawdmadeit1/echoforge/releases/tag/v1.0.0
+
 ## What this is
 
 A demo-quality progressive web experience for **EchoForge**:
