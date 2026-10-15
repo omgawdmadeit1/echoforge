@@ -1,0 +1,21 @@
+name: Enforce Pages HTTPS
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/pages-https.yml
+permissions:
+  contents: read
+  pages: write
+jobs:
+  https:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Turn on the custom-domain certificate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh api --method PUT repos/omgawdmadeit1/echoforge/pages --input - <<'JSON'
+          {"cname":"echoforge.lvlltd.com","https_enforced":true}
+          JSON
